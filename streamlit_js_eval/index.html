@@ -31,19 +31,20 @@
       
 
       const copyToClipboard = function (textToCopy, onSuccess) {
-        console.log('Copying to clipboard...')
+        //console.log('Copying to clipboard...')
         navigator.clipboard.writeText(textToCopy).then(function() {
               /* clipboard successfully set */
-              console.log('Copy succeeded!')
+              //console.log('Copy succeeded!')
               onSuccess()
             }, function() {
               /* clipboard write failed */
-              console.log('Copy failed')
+              //console.log('Copy failed')
+              return false;
         });
       };
 
       const bsButton = function (title) {
-        console.log('Showing a button..')
+        //console.log('Showing a button..')
         setFrameHeight(100);
         //const bdy = document.querySelector("body")
         document.head.insertAdjacentHTML("beforeEnd",`
@@ -118,11 +119,11 @@
         {
           data_from_streamlit = new_value
           want_output = event.data.args.hasOwnProperty('want_output') ? event.data.args.want_output : true 
-          console.log("Evaluating: "+data_from_streamlit)
+          //console.log("Evaluating: "+data_from_streamlit)
           result = eval(data_from_streamlit)
           ret_val = want_output ? result : 'No output requested'
           if(want_output) Promise.resolve(ret_val).then(function(value) {
-            console.log('Outputting '+value)
+            //console.log('Outputting '+value)
             sendDataToPython({value: value, dataType: "json"});
           })
           

@@ -63,7 +63,6 @@ def create_share_link(sharedObject, linkText, successText, component_key=None):
     document.getElementsByTagName("body")[0].innerHTML += `<a href="#%s" id="shli">%s</a>`;
     
     document.getElementById("shli").addEventListener("click", function() {
-        console.log('Sharing')
         if (navigator.share) {
             navigator.share(%s).then(() => {
             document.getElementById("shli").innerHTML = '%s'
@@ -71,7 +70,7 @@ def create_share_link(sharedObject, linkText, successText, component_key=None):
         })
         .catch(console.error);
         } else {
-           console.log('Sharing failed')
+            return
         }
       })
     '''%(str(87264), linkText, sharedObject, successText)
