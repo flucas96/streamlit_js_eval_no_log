@@ -1,7 +1,7 @@
 # Streamlit-JS-Eval
 
 <hr>
-Changes in my forked version:
+<b>Changes in my forked version:</b>
 
 I have removed several ```console.log(...)``` statments from the original component.
 <hr>
